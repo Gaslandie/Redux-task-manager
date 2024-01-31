@@ -1,30 +1,37 @@
-import { ADD_TASK,DELETE_TASK,TOGGLE_TASK } from "../actions/taskAction";
+import {ADD_TASK,DELETE_TASK,TOGGLE_TASK} from '../actions/taskAction';
 
-//l'etat initial de nos taches
+//Etat initial des tâches
 const initialState = {
-    tasks : []
+    tasks:[]
 };
 
-//notre fonction reducer pour gerer letat de nos tache
-const tasksReducer = (state=initialState,action) =>{
-    switch (action.type){
+//Reducer pour gerer l'etat des tâches
+const tasksReducer = (state = initialState,action) => {
+    switch(action.type){//en fonction du type d'action
         case ADD_TASK:
+            //ajouter une nouvelle tache à la liste
             return{
                 ...state,
-                tasks: [...state.tasks, action.payload]
-            }
+                tasks:[...state.tasks,action.payload]
+            };
         case DELETE_TASK:
-            return {
+            //supprimer une tache de la liste
+            return{
                 ...state,
-                tasks: state.tasks.filter(task => task.id !== action.payload)
+                tasks:state.tasks.filter(task => task.id !== action.payload)
             };
         case TOGGLE_TASK:
+            //basculer l'etat de completion d'une tâche
             return {
                 ...state,
-                tasks:state.tasks.map(task => task.id === action.payload ?{...task,completed: !task.completed}:task)
+                tasks: state.tasks.map(task => 
+                    task.id === action.payload ? {...task,completed: !task.completed}:task
+                    )
             };
-            default:
-                return state;
+        default:
+            //Retourne l'etat actuel
+            return state;
+
     }
 }
 
