@@ -1,5 +1,5 @@
 //CreateSlice est une fonction de Redux toolkit qui permet de creer des reducers et des actions de manière simplifiée
-import { createSlice } from "reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 //UUid pour des id uniques
 import { v4 as uuid} from 'uuid';
 
