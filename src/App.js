@@ -3,6 +3,7 @@ import AddTodoForm from "./components/AddTodoForm";
 import TodoList from "./components/TodoList";
 import TotalCompleteItems from "./components/TotalCompleteItems";
 import ToggleMode from "./components/ToggleMode";
+import './index.css'
 
 const App = () => {
   return (
